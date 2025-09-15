@@ -1,25 +1,362 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.11.35327.3
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "first", "first\first.csproj", "{CD7F42D8-87A4-468F-9E06-A6E148576ADF}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CD7F42D8-87A4-468F-9E06-A6E148576ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD7F42D8-87A4-468F-9E06-A6E148576ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD7F42D8-87A4-468F-9E06-A6E148576ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD7F42D8-87A4-468F-9E06-A6E148576ADF}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {82872356-7D1D-4941-A925-930CF109791E}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Collections.Specialized;
+using System.Text;
+namespace first
+{
+    class Program
+    {
+        static void Main()
+        {
+            bool student = true; Console.WriteLine($"Ты студент =  {student} ");
+            byte bit1 = 254; Console.WriteLine($"Целое число от 0 до 255 (byte): {bit1} ");
+            sbyte bit2 = 126; Console.WriteLine($"Целое число от -128 до 127 (sbyte): {bit2} ");
+            short n1 = -32768; Console.WriteLine($"Целое число от -32768 до 32767 (short): {n1} ");
+            ushort n2 = 65535; Console.WriteLine($"Целое число от 0 до 65535 (ushort): {n2} ");
+            uint num = 10000; Console.WriteLine($"Большое целое число (uint):{num}");
+            ulong numul = 22323; Console.WriteLine($"Eщеее большое целое число (ulong): {numul}");
+            float numf = 22.33f; Console.WriteLine($"Число с плавающей точкой (float): {numf}");
+            double numd = 33.4; Console.WriteLine($"Вот еще число с плавающей точкой (double):{numd}");
+            decimal numdec = 340.44343m; Console.WriteLine($"Вот еще число с плавающей точкой (decimal):{numdec}");
+
+            Console.Write("Введите свое имя: ");
+            string name = Console.ReadLine();
+            Console.WriteLine($"Привет {name}");
+
+            Console.WriteLine("Сколько тебе лет ?");
+            int age = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine(" Введи большое целое число (long):");
+            long numl = Convert.ToInt64(Console.ReadLine());
+
+            Console.WriteLine("Введи один любой символ:");
+            char simbol = Convert.ToChar(Console.ReadLine());
+
+            object obj = " Hello world!";
+            Console.WriteLine($"Принимает любой тип данных (object):{obj}");
+
+
+            Console.WriteLine("Примеры явного приведения:");
+            int a = 10;
+            int b = 20;
+            byte l = (byte)(a + b);
+
+            double d = 4.7;
+            decimal e = (decimal)d;
+
+            char f = 'a';
+            long g = (long)f;
+
+            short hh = 205;
+            float kk = (float)hh;
+
+            sbyte w = 100;
+            decimal v = (decimal)w;
+
+            Console.WriteLine($"{l}, {e}, {g}, {kk}, {v}");
+
+
+            Console.WriteLine("Примеры неявного приведения:");
+            byte aa = 50;
+            ushort a1 = aa;
+
+            int bb = 51;
+            long b1 = bb;
+
+            ulong cc = 52;
+            double c1 = cc;
+
+            char dd = 'r';
+            decimal d1 = dd;
+
+            sbyte ee = 53;
+            short e1 = ee;
+
+            Console.WriteLine($"{a1}, {b1}, {c1}, {d1}, {e1}");
+
+
+            Console.WriteLine("Упаковка и распаковка значимых типов данных:");
+            int p = 2025;
+            object o = p;
+            int x = (int)o;
+            Console.WriteLine(x);
+
+            string wew = "Запакоовка и распакооовка";
+            object ow = wew;
+            string wooord = (string)ow;
+            Console.WriteLine(wooord);
+
+            float weight = 100.99f;
+            object of = weight;
+            float weeeight = (float)of;
+            Console.WriteLine(weeeight);
+
+
+            var noname1 = "строка";
+            var noname2 = 20;
+            var noname3 = 'd';
+            var noname4 = 33.4;
+            var noname5 = false;
+            Console.WriteLine($"Неявная типизация: {noname1},{noname2},{noname3},{noname4},{noname5}");
+
+            Console.WriteLine("Пример с Nullable:");
+            int? home = null;
+            Console.WriteLine(home);
+
+            Console.WriteLine("Пояснение к var:");
+            //var peremenka = "ураа";
+            //peremenka = 15;
+
+            Console.WriteLine("hello");
+            Console.WriteLine("Компания \"Syper company\"");
+            Console.WriteLine("    Привет \nмама");
+
+
+            Console.WriteLine("Примеры со строками:");
+            string s1 = "My";
+            string s2 = "name";
+            string s3 = s1 + " " + s2;
+            string s4 = string.Concat(s3, " is pompom");
+            Console.WriteLine(s4);
+
+
+            string apple = "яблоко", peach = "персик";
+            int fruits = string.Compare(apple, peach);
+            Console.WriteLine(fruits);
+
+            string stroka = "originaaal";
+            string copy = string.Copy(stroka);
+            Console.WriteLine(copy);
+
+            string str = "I have a cat";
+            string sub = str.Substring(8);
+            Console.WriteLine(sub);
+
+            string text = " Вот такие вот дела";
+            string[] words = text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string word in words)
+            {
+                   Console.WriteLine(word);
+            }
+            
+
+            string day = " Какой день";
+            string good = " хороший";
+            day = day.Insert(6, good);
+            Console.WriteLine(day);
+
+            string s = " Вкусная еда";
+            int ind = s.Length - 3;
+            s = s.Remove(ind);
+            s = s.Remove(0, 2);
+            Console.WriteLine(s);
+
+
+            string nickname = "Vesta";
+            int vozrast = 10;
+            Console.WriteLine($"Никнейм: {nickname} Возраст: {vozrast}");
+
+            string emptyString = "";
+            string MyEmptyString = string.Empty;
+            string nulstring = null;
+
+
+            string MyString = "kjdjd";
+            if (string.IsNullOrEmpty(MyString))
+            {
+                Console.WriteLine("Строка пустая или равна null");
+            }
+            else { Console.WriteLine("Строка содержит данные");
+                string coppia = MyString;
+                Console.WriteLine(coppia);
+            }
+
+            var sb = new StringBuilder("Какой-то длинный текст");
+            sb.Remove(9, 7);
+            Console.WriteLine(sb);
+            sb.Insert(9, "супер");
+            Console.WriteLine(sb);
+
+
+            Console.WriteLine("Работа с массивами:");
+            int[,] numbers = { { 1, 2, 3 }, { 4, 5, 6 } };
+            int rows = numbers.GetUpperBound(0) + 1;
+            int columns = numbers.Length / rows;
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    Console.Write($"{numbers[i, j]}\t");
+                }
+                Console.WriteLine();
+            }
+
+
+            string[] people = { "Tom ", " Sam ", " Bob" };
+            for (int u = 0; u < people.Length; u++)
+            {
+                Console.Write(people[u]);
+
+            }
+            Console.Write($" Длинна массива = {people.Length}\n");
+
+
+
+            Console.WriteLine("Введите позицию");
+            int position = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите значение");
+            string value = Console.ReadLine();
+
+            if (position >= 0 && position < people.Length)
+            {
+                people[position] = value;
+
+            }
+            else
+            {
+                Console.WriteLine("Выходит за пределы");
+            }
+
+            for (int u = 0; u < people.Length; u++)
+            {
+                Console.Write(people[u]);
+
+            }
+            Console.WriteLine();
+
+            int[][] massiv = new int[3][];
+            massiv[0] = new int[2];
+            massiv[1] = new int[3];
+            massiv[2] = new int[4];
+            Console.WriteLine("Введите 2 значения для первой строки: ");
+            for (int y =0; y < massiv[0].Length; y++)
+            {
+                massiv[0][y] = Convert.ToInt16(Console.ReadLine());
+            }
+            Console.WriteLine("Введите 3 значения для первой строки: ");
+            for (int y = 0; y < massiv[1].Length; y++)
+            {
+                massiv[1][y] = Convert.ToInt16(Console.ReadLine());
+            }
+            Console.WriteLine("Введите 4 значения для первой строки: ");
+            for (int y = 0; y < massiv[2].Length; y++)
+            {
+                massiv[2][y] = Convert.ToInt16(Console.ReadLine());
+            }
+            Console.WriteLine("Ступенчатый массив");
+            for (int h = 0; h<massiv.Length; h++)
+            {
+               for (int y = 0; y<massiv[h].Length; y++)
+                {
+                    Console.Write($"{massiv[h][y]}\t");
+                }
+               Console.WriteLine();
+            }
+
+
+            var box = new int[] { 1 , 2 , 3 , 4 };
+            Console.WriteLine("Неявно типизированный массив: ");
+            for(int q= 0; q < box.Length; q++)
+            {
+                Console.Write(box[q]);
+            }
+            Console.WriteLine() ;
+
+            Console.WriteLine("Кортежи");
+            (string, int, char, double, ulong) person = ("Tom", 23 , 'p', 90.33 , 100);
+            Console.WriteLine(person);
+
+            Console.WriteLine(person.Item1);
+            Console.WriteLine(person.Item3);
+            Console.WriteLine(person.Item4);
+
+            Console.WriteLine("Распаковка в переменные: ");
+            var (namik, yerold) = ("Tom", 23);
+            Console.WriteLine(namik);
+            Console.WriteLine(yerold);
+
+            //(string namee, int year, char sim, double weigh, ulong matem) = person;
+            //Console.WriteLine(namee);
+
+            var (namee,year, sim, weigh, matem)= ("Tom", 23, 'p', 90.33, 100);
+            Console.WriteLine(matem);
+
+
+            var korobka = (5, "lala", 55.4);
+            (int five, _,double fifty)=korobka;
+            Console.WriteLine($"{five},{fifty}");    
+
+
+            string one = "Сок";
+            string two = "Чай";
+            (one,two) = (two,one);
+            Console.WriteLine(one);
+
+
+            var tuple1 = (1, "hello", 33.4);
+            var tuple2 = (1, "hello", 33.4);
+            var tuple3 = (3, "lalala", 53.7);
+
+            bool res1=tuple1.Equals(tuple2);
+            bool res2 = tuple2.Equals(tuple3);
+
+            Console.WriteLine($"Сравнение 1 и 2: {res1}");
+            Console.WriteLine($"Сравнение 2 и 3: {res2}");
+
+
+            Console.WriteLine("Функция");
+            int[] array = new int[3];
+            string stroke = string.Empty;
+            fu(array, stroke);
+            static void fu(int[] array, string stroke)
+            {
+                array = new int[] { 1, 9, 3 };
+                stroke = "Pypypy";
+                int max = array[0], min = array[0], sum = 0;
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i] > max)
+                    {
+                        max = array[i];
+                    }
+                    if (array[i] < min)
+                    {
+                        min = array[i];
+                    }
+                    sum += array[i];
+                }
+                    char firstlet = stroke[0];
+                    var kor = (min, max, sum, firstlet);
+                    Console.WriteLine(kor);
+                
+            }
+
+            int A = int.MaxValue;
+            int B = 1;
+            void fuche(int A, int B)
+            {
+                try
+                {
+                    checked
+                    {
+                        int resultatik = A + B;
+                        Console.WriteLine($"Результат checked: {resultatik}");
+                    }
+                }
+                catch(OverflowException)
+                {
+                    Console.WriteLine("Результат checked: Переполнен");
+                }
+            }
+            void fuunche(int A, int B)
+            {
+                unchecked
+                {
+                    int resultatik = A + B;
+                    Console.WriteLine($"Рузультат unchecked: {resultatik}");
+                }
+            }
+            fuche(A,B);
+            fuunche(A,B);
+        }
+    }
+}
